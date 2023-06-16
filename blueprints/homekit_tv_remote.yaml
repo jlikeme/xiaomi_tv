@@ -29,7 +29,7 @@ action:
             "arrow_left": "left",
             "arrow_right": "right",
             "select": "enter",
-            "play_pause": "enter",
+            "play_pause": "home",
             "back": "back",
             "information": "menu"
           } 
