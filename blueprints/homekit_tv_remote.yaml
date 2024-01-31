@@ -1,5 +1,5 @@
 blueprint:
-  name: iOS电视遥控
+  name: iOS电视遥控改
   description: iOS系统电视遥控器
   domain: automation
   source_url: https://github.com/shaonianzhentan/xiaomi_tv
