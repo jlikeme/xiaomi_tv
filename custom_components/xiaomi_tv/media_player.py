@@ -9,24 +9,10 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.storage import STORAGE_DIR
 from homeassistant.components.media_player import (
     MediaPlayerEntity,
+    MediaPlayerEntityFeature,
     MediaType,
     BrowseMedia, 
     async_process_play_media_url
-)
-from homeassistant.components.media_player.const import (
-    SUPPORT_BROWSE_MEDIA,
-    SUPPORT_TURN_OFF,
-    SUPPORT_TURN_ON,
-    SUPPORT_VOLUME_STEP,
-    SUPPORT_VOLUME_SET,
-    SUPPORT_VOLUME_MUTE,
-    SUPPORT_SELECT_SOURCE,
-    SUPPORT_SELECT_SOUND_MODE,
-    SUPPORT_PLAY_MEDIA,
-    SUPPORT_PLAY,
-    SUPPORT_PAUSE,
-    SUPPORT_NEXT_TRACK,
-    SUPPORT_PREVIOUS_TRACK
 )
 from homeassistant.const import (
     CONF_HOST, 
@@ -46,10 +32,21 @@ from .adb import MediaADB
 
 _LOGGER = logging.getLogger(__name__)
 
-SUPPORT_XIAOMI_TV = SUPPORT_VOLUME_STEP | SUPPORT_VOLUME_MUTE | SUPPORT_VOLUME_SET | \
-    SUPPORT_TURN_ON | SUPPORT_TURN_OFF | SUPPORT_SELECT_SOURCE | SUPPORT_SELECT_SOUND_MODE | \
-    SUPPORT_PLAY_MEDIA | SUPPORT_PLAY | SUPPORT_PAUSE | SUPPORT_PREVIOUS_TRACK | SUPPORT_NEXT_TRACK | \
-    SUPPORT_BROWSE_MEDIA
+SUPPORT_XIAOMI_TV = (
+  MediaPlayerEntityFeature.VOLUME_STEP 
+  | MediaPlayerEntityFeature.VOLUME_MUTE 
+  | MediaPlayerEntityFeature.VOLUME_SET 
+  | MediaPlayerEntityFeature.TURN_ON 
+  | MediaPlayerEntityFeature.TURN_OFF 
+  | MediaPlayerEntityFeature.SELECT_SOURCE 
+  | MediaPlayerEntityFeature.SELECT_SOUND_MODE 
+  | MediaPlayerEntityFeature.PLAY_MEDIA 
+  | MediaPlayerEntityFeature.PLAY 
+  | MediaPlayerEntityFeature.PAUSE 
+  | MediaPlayerEntityFeature.PREVIOUS_TRACK 
+  | MediaPlayerEntityFeature.NEXT_TRACK 
+  | MediaPlayerEntityFeature.BROWSE_MEDIA
+)
 
 async def async_setup_entry(
     hass: HomeAssistant,
